@@ -61,12 +61,12 @@ Follow the instructions shown.
 
 Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely.
 
-### Installing python
+### Installing Python
 The default version of Python on Steno is 3.9.21. That may or may not be sufficient for you workload. Furthermore, as `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
-Other package managers solve some of the issues with `pip`. There are many -- `uv`, `poetry`, `pixi`, etc. -- and each has their own (dis)advantages. I will explain the installation of `conda` as that can install non-python libraries (such as C or Fortran compilers) which can be very useful.
+Other package managers solve some of the issues with `pip`. There are many -- `uv`, `poetry`, `pixi`, etc. -- and each has their own (dis)advantages. I will explain the installation of `conda` as that can install non-Python libraries (such as C or Fortran compilers) which can be very useful.
 
 Follow the installation instructions given here: https://www.anaconda.com/docs/getting-started/miniconda/main
 
 
-# Announcements
+## Announcements
 Announcements from Steno about maintenance work or significant/unplanned downtime can be obtained by signing up to the following mailing list: https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce

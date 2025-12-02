@@ -7,7 +7,9 @@ For SLURM specifics see the [excellent documentation](https://slurm.schedmd.com/
 
 Both are comprehensive so feel free to only watch/read as much as you feel the need to have. SLURM is a powerful tool, but day-to-day usage involves only a few commands.
 
-The queue that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`. The following resources are available on those partitions:
+
+## Partitions
+The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`. The following resources are available on those partitions:
 
 ### `kemi_gemma3` (CPU partition)
 

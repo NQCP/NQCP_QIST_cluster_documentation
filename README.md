@@ -9,7 +9,7 @@ Both are comprehensive so feel free to only watch/read as much as you feel the n
 
 
 ## Partitions
-The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`. The following resources are available on those partitions:
+The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`. Please make sure to run CPU jobs on `kemi_gemma3`! If all CPUs are currently in use on `qist-gpu`, no one will be able to run GPU workloads -- even if all the GPUs are unused. The following resources are available on those partitions:
 
 ### `kemi_gemma3` (CPU partition)
 

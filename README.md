@@ -68,5 +68,5 @@ Other package managers solve some of the issues with `pip`. There are many -- `u
 Follow the installation instructions given here: https://www.anaconda.com/docs/getting-started/miniconda/main
 
 
-## Announcements
+## Cluster announcements
 Announcements from Steno about maintenance work or significant/unplanned downtime can be obtained by signing up to the following mailing list: https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce

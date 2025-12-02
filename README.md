@@ -67,6 +67,15 @@ Other package managers solve some of the issues with `pip`. There are many -- `u
 
 Follow the installation instructions given here: https://www.anaconda.com/docs/getting-started/miniconda/main
 
-
 ## Cluster announcements
 Announcements from Steno about maintenance work or significant/unplanned downtime can be obtained by signing up to the following mailing list: https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce
+
+## Troubleshooting & reporting issues
+When something breaks, the best way to get it fixed (and documented) is to open a GitHub issue in this repository. That way, others can benefit from your struggles
+
+### Before opening an issue
+
+1. Check this documentation quickly to see if the problem is already covered.
+2. Check existing Issues (both **Open** and **Closed**) for something similar.
+3. If you still don’t see it -> open a new issue.
+

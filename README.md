@@ -12,7 +12,7 @@ Go to the following link and follow the instructions: https://hpc.ku.dk/account.
 
 Fill out the requested information. Barring the most obvious ones (like "First Name" etc), I'll list default information for some of the fields:
 
-```bash
+```text
 Prefered login name: Username for your account on Steno. It's used for login, but is also the username that everyone else sees so please choose a descriptive name.
 Prefered shell: Bash is fine
 Firewall ip [1-3]: If you don't know your home IP-address, just input whatever. For example, "123.456.789.012". These three fields are used to whitelist three IP-addresses so you can access Steno from outside of KU. It's possible to change these afterwards (see section "Accessing Steno from outside UCPH")
@@ -23,7 +23,7 @@ When the form has been filled out, press "Submit".
 When you have filled out the form, you need to send an email to support at HPC/UCPH where you kindly ask for access to Steno. REMEMBER to write which queue you need access to and to attach the rules-of-conduct you've signed! Gemma needs to be CC'ed so that IT-support knows that she has allowed you access.
 
 ```email
-E-mail: support@hpc.ku.dk
+support@hpc.ku.dk
 ```
 Now you just need patience! You should get an email within a day or two where they confirm that you're account has been created.
 

@@ -30,13 +30,13 @@ Now you just need patience! You should get an email within a day or two where th
 Happy calculating!
 
 ## Partitions
-The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`.
+The partitions that QIST people should have access to are: `kemi_gemma3`, `PLACEHOLDER FAST`, and `PLACEHOLDER FAT`, and `qist-gpu`.
 > [!CAUTION]
 > Do *not* run CPU-only jobs on `qist-gpu`. If all CPU cores are used, no one can run GPU jobs even if the GPUs are idle.
 
 As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them (or Nina Glaser) to let them know.
 
-The following resources are available on those partitions:
+The following resources are available on those partitions. The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wiki/Hyper-threading):
 
 ### `kemi_gemma3` (CPU partition)
 
@@ -44,6 +44,21 @@ The following resources are available on those partitions:
 - **CPUs per node:** 2 x 16 cores (32 cores total)
 - **Memory per node:** approx. 256 GB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
+
+### `PLACEHOLDER FAST` (CPU partition)
+
+- **Nodes:** 4
+- **CPUs per node:** 2 x 48 cores, 3.65 GHz (96 cores total)
+- **Memory per node:** 1.5 TB
+- **Use case:** Small-medium CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
+
+### `PLACEHOLDER FAT` (CPU partition)
+
+- **Nodes:** 3
+- **CPUs per node:** 2 x 96 cores, 2.6 GHz (32 cores total)
+- **Memory per node:** 3 TB
+- **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
+
 
 ### `qist-gpu` (GPU partition)
 

@@ -15,8 +15,8 @@ Fill out the requested information. Barring the most obvious ones (like "First N
 ```text
 Preferred login name: Username for your account on Steno. It's used for login, but is also the username that everyone else sees so please choose a descriptive name.
 Preferred shell: Bash is fine
-Firewall ip [1-3]: If you don't know your home IP-address, just input whatever. For example, "123.456.789.012". These three fields are used to whitelist three IP-addresses so you can access Steno from outside of KU. It's possible to change these afterwards (see section "Accessing Steno from outside UCPH")
-Next entitlement check: When they're supposed to check if you should still have access to Steno. Choose whichever option that closest match your project length. For example, if you're bachelor, choose "6 months".
+Firewall ip [1-3]: If you don't know your home IP-address, just input whatever. For example, "123.456.789.012". These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing Steno from outside UCPH")
+Next entitlement check: When they're supposed to check if you should still have access to Steno. Choose whichever option best matches your project length. For example, if you're bachelor, choose "6 months".
 ```
 When the form has been filled out, press "Submit".
 
@@ -25,13 +25,18 @@ When you have filled out the form, you need to send an email to support at HPC/U
 ```email
 support@hpc.ku.dk
 ```
-Now you just need patience! You should get an email within a day or two where they confirm that you're account has been created.
+Now you just need patience! You should get an email within a day or two where they confirm that your account has been created.
 
 Happy calculating!
 
 ## Partitions
-The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`. Make sure to run CPU jobs on `kemi_gemma3`! If all CPUs are currently in use on `qist-gpu`, no one will be able to run GPU workloads -- even if all the GPUs are unused. The following resources are available on those partitions:
-As there is no central administrator or automated process to keep track of this, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them (or Nina Glaser) to let them know.
+The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`.
+> [!CAUTION]
+> Do *not* run CPU-only jobs on `qist-gpu`. If all CPU cores are used, no one can run GPU jobs even if the GPUs are idle.
+
+As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them (or Nina Glaser) to let them know.
+
+The following resources are available on those partitions:
 
 ### `kemi_gemma3` (CPU partition)
 
@@ -54,18 +59,20 @@ When you've managed to log in to your account on Steno, you need to set up your 
 
 Which programs you have to install depends on which types of calculations you need to run. In the following, I'll walk through each installation independently and it is up to you to tailor it to your specific needs.
 
-First, we need to set up some basic configurations in your .bashrc file.
-1. Open your .bashrc file. This can be done either through WinSCP or through the terminal with vim/nano.
+First, we need to set up some basic configurations in your `.bashrc` file. The file `~/.bashrc` lives in your home directory. You can edit it from the terminal (`nano ~/.bashrc`, `vim ~/.bashrc`) or via WinSCP
+1. Open your `.bashrc`. This can be done either through WinSCP or through the terminal with vim/nano.
 
-2. Insert the following text below what is already present. Replace `XXX` with your username:
+2. Insert the following text below what is already present:
 
 ```bash
-alias q='squeue -u XXX'
-alias wq="watch -n 3 'squeue -u XXX'"
+alias q='squeue -u $USER'
+alias wq="watch -n 3 'squeue -u $USER'"
 alias qgpu='squeue -p qist-gpu'
 alias q3='squeue -p kemi_gemma3'
 alias show='scontrol show node'
 alias job='scontrol show job'
+
+# show availability for nodes node[240,321-334] (QIST nodes)
 alias qav='sinfo -N -n node[240,321-334]'
 ```
 
@@ -84,16 +91,16 @@ Follow the instructions shown.
 Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely.
 
 ### Installing Python
-The default version of Python on Steno is 3.9.21. That may or may not be sufficient for you workload. Furthermore, as `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
+The default version of Python on Steno is 3.9.21. That may or may not be sufficient for your workload. Furthermore, as `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
 Other package managers solve some of the issues with `pip`. There are many -- `uv`, `poetry`, `pixi`, etc. -- and each has their own (dis)advantages. I will explain the installation of `conda` as that can install non-Python libraries (such as C or Fortran compilers) which can be very useful.
 
-Follow the installation instructions given here: https://www.anaconda.com/docs/getting-started/miniconda/main
+Follow the installation instructions given here: <https://www.anaconda.com/docs/getting-started/miniconda/main>
 
 ## Cluster announcements
-Announcements from Steno about maintenance work or significant/unplanned downtime can be obtained by signing up to the following mailing list: https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce
+Announcements from Steno about maintenance windows, upgrades, and unplanned outages can be obtained by signing up to the following mailing list: <https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce>
 
 ## Troubleshooting & reporting issues
-When something breaks, the best way to get it fixed (and documented) is to open a GitHub issue in this repository. That way, others can benefit from your struggles
+When something breaks, the best way to get it fixed (and documented) is to open a GitHub issue in this repository. That way, others can benefit from your struggles.
 
 ### Before opening an issue
 

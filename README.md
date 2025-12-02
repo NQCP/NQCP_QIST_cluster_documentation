@@ -21,7 +21,7 @@ The partitions that QIST people should have access to are: `kemi_gemma3` and `qi
 ### `qist-gpu` (GPU partition)
 
 - **Nodes:** 1
-- **GPUs per node:** 4 x H100 NVL approx. 144 GB per GPU
+- **GPUs per node:** 4 x H200 NVL 141 GB per GPU
   - **Driver:** 580.95.05
   - **CUDA:** 13.0
 - **CPUs / memory per node:** 2 x 48 cores, 1.5 TB RAM

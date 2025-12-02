@@ -1,5 +1,5 @@
 # NQCP_QIST_cluster_documentation
-This documentation is meant for QIST users on Steno. It explains how to get an account, log in, which partitions to use, and how to set up a working environment.
+This documentation is meant for QIST users on the HPC cluster. It explains how to get an account, log in, which partitions to use, and how to set up a working environment.
 
 For SLURM specifics see the [excellent documentation](https://slurm.schedmd.com/documentation.html) as well as plenty of guides. See for example the following:
 * https://psteinb.github.io/hpc-in-a-day/ (text)
@@ -13,14 +13,14 @@ Go to the following link and follow the instructions: https://hpc.ku.dk/account.
 Fill out the requested information. Barring the most obvious ones (like "First Name" etc), I'll list default information for some of the fields:
 
 ```text
-Preferred login name: Username for your account on Steno. It's used for login, but is also the username that everyone else sees so please choose a descriptive name.
+Preferred login name: Username for your account. It's used for login, but is also the username that everyone else sees so please choose a descriptive name.
 Preferred shell: Bash is fine
-Firewall ip [1-3]: If you don't know your home IP-address, just input whatever. For example, "123.456.789.012". These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing Steno from outside UCPH")
-Next entitlement check: When they're supposed to check if you should still have access to Steno. Choose whichever option best matches your project length. For example, if you're bachelor, choose "6 months".
+Firewall ip [1-3]: If you don't know your home IP-address, just input whatever. For example, "123.456.789.012". These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing the HPC cluster from outside UCPH")
+Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor, choose "6 months".
 ```
 When the form has been filled out, press "Submit".
 
-When you have filled out the form, you need to send an email to support at HPC/UCPH where you kindly ask for access to Steno. REMEMBER to write which queue you need access to and to attach the rules-of-conduct you've signed! Gemma needs to be CC'ed so that IT-support knows that she has allowed you access.
+When you have filled out the form, you need to send an email to support at HPC/UCPH where you kindly ask for access. REMEMBER to write which queue you need access to and to attach the rules-of-conduct you've signed! Gemma needs to be CC'ed so that IT-support knows that she has allowed you access.
 
 ```email
 support@hpc.ku.dk
@@ -54,8 +54,8 @@ The following resources are available on those partitions:
 - **CPUs / memory per node:** 2 x 48 cores, 1.5 TB RAM
 - **Use case:** GPU-accelerated workloads (neural network wavefunctions, ML potentials, and other CUDA/JAX/PyTorch jobs).
 
-## Set up workspace on Steno
-When you've managed to log in to your account on Steno, you need to set up your workspace.
+## Setting up your workspace
+When you've managed to log in to your account, you need to set up your workspace.
 
 Which programs you have to install depends on which types of calculations you need to run. In the following, I'll walk through each installation independently and it is up to you to tailor it to your specific needs.
 
@@ -76,11 +76,11 @@ alias job='scontrol show job'
 alias qav='sinfo -N -n node[240,321-334]'
 ```
 
-## Accessing Steno from outside UCPH
-Steno can, in general, not be accessed without being connected to the cabled internet of UCPH. However, there are ways to access Steno without being on UCPH premises:
+## Accessing the HPC cluster from outside UCPH
+The HPC cluster can, in general, not be accessed without being connected to the cabled internet of UCPH. However, there are ways to access the HPC cluster without being on UCPH premises:
 1. Whitelist an IP-address in the firewall
 
-While already logged in on Steno, run the following command:
+While already logged in, run the following command:
 ```bash
 hpc-setup-firewall.sh
 ```
@@ -91,13 +91,13 @@ Follow the instructions shown.
 Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely.
 
 ### Installing Python
-The default version of Python on Steno is 3.9.21. That may or may not be sufficient for your workload. Furthermore, as `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
+The default version of Python the HPC cluster is 3.9.21. That may or may not be sufficient for your workload. Furthermore, as `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
 Other package managers solve some of the issues with `pip`. There are many -- `uv`, `poetry`, `pixi`, etc. -- and each has their own (dis)advantages. I will explain the installation of `conda` as that can install non-Python libraries (such as C or Fortran compilers) which can be very useful.
 
 Follow the installation instructions given here: <https://www.anaconda.com/docs/getting-started/miniconda/main>
 
 ## Cluster announcements
-Announcements from Steno about maintenance windows, upgrades, and unplanned outages can be obtained by signing up to the following mailing list: <https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce>
+Announcements from the HPC cluster administrators about maintenance windows, upgrades, and unplanned outages can be obtained by signing up to the following mailing list: <https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce>
 
 ## Troubleshooting & reporting issues
 When something breaks, the best way to get it fixed (and documented) is to open a GitHub issue in this repository. That way, others can benefit from your struggles.

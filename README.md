@@ -46,3 +46,8 @@ alias show='scontrol show node'
 alias job='scontrol show job'
 alias qav='sinfo -N -n node[240,321-334]'
 ```
+### Installing python
+The default version of Python on Steno is 3.9.21. That may or may not be sufficient for you workload. Furthermore, as `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
+Other package managers solve some of the issues with `pip`. There are many -- `uv`, `poetry`, `pixi`, etc. -- and each has their own (dis)advantages. I will explain the installation of `conda` as that can install non-python libraries (such as C or Fortran compilers) which can be very useful.
+
+Follow the installation instructions given here: https://www.anaconda.com/docs/getting-started/miniconda/main

@@ -1,5 +1,5 @@
 # NQCP_QIST_cluster_documentation
-This documentation is mostly meant to introduce and explain the layout of Steno (our local high-performance computing (HPC) cluster), but not the usage of SLURM (the job queuing system).
+This documentation is meant for QIST users on Steno. It explains how to get an account, log in, which partitions to use, and how to set up a working environment.
 
 For SLURM specifics see the [excellent documentation](https://slurm.schedmd.com/documentation.html) as well as plenty of guides. See for example the following:
 * https://psteinb.github.io/hpc-in-a-day/ (text)
@@ -30,7 +30,8 @@ Now you just need patience! You should get an email within a day or two where th
 Happy calculating!
 
 ## Partitions
-The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`. Please make sure to run CPU jobs on `kemi_gemma3`! If all CPUs are currently in use on `qist-gpu`, no one will be able to run GPU workloads -- even if all the GPUs are unused. The following resources are available on those partitions:
+The partitions that QIST people should have access to are: `kemi_gemma3` and `qist-gpu`. Make sure to run CPU jobs on `kemi_gemma3`! If all CPUs are currently in use on `qist-gpu`, no one will be able to run GPU workloads -- even if all the GPUs are unused. The following resources are available on those partitions:
+As there is no central administrator or automated process to keep track of this, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them (or Nina Glaser) to let them know.
 
 ### `kemi_gemma3` (CPU partition)
 

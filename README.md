@@ -12,15 +12,17 @@ Go to the following link and follow the instructions: https://hpc.ku.dk/account.
 
 Fill out the requested information. Barring the most obvious ones (like "First Name" etc), I'll list default information for some of the fields:
 
-```text
-Preferred login name: Username for your account. It's used for login, but is also the username that everyone else sees so please choose a descriptive name.
-Preferred shell: Bash is fine
-Firewall ip [1-3]: If you don't know your home IP-address, just input whatever. For example, "123.456.789.012". These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing the HPC cluster from outside UCPH")
-Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor, choose "6 months".
-```
+- Group: Select QIST
+- Preferred login name: Username for your account. Used for login and the username that everyone else sees so please choose a descriptive name.
+- Preferred shell: Bash is fine
+- Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing the HPC cluster from outside UCPH"). You can input a placeholder (e.g. "123.456.789.012") or check your current IP-address at <https://ifconfig.me>. 
+- Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor, choose "6 months".
+
 When the form has been filled out, press "Submit".
 
 When you have filled out the form, you need to send an email to support at HPC/UCPH where you kindly ask for access. REMEMBER to write which queue you need access to and to attach the rules-of-conduct you've signed! Gemma needs to be CC'ed so that IT-support knows that she has allowed you access.
+
+Once your request has been granted, you should get an email with a temporary password to access the cluster for the first time and instructions on how to change you password to a permanent one.
 
 ```email
 support@hpc.ku.dk

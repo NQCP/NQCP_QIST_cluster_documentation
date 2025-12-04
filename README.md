@@ -36,6 +36,11 @@ The partitions that QIST people should have access to are: `kemi_gemma3`, `PLACE
 
 As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them (or Nina Glaser) to let them know.
 
+The real-life name of someone can often be found running the following command:
+```bash
+getent passwd <username>
+```
+
 The following resources are available on those partitions. The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wiki/Hyper-threading):
 
 ### `kemi_gemma3` (CPU partition)

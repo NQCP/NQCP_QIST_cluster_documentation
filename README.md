@@ -20,8 +20,6 @@ Fill out the requested information. Barring the most obvious ones (like "First N
 
 When the form has been filled out, press "Submit".
 
-When you have filled out the form, you need to send an email to support at HPC/UCPH where you kindly ask for access. REMEMBER to write which queue you need access to and to attach the rules-of-conduct you've signed! Gemma needs to be CC'ed so that IT-support knows that she has allowed you access.
-
 Once your request has been granted, you should get an email with a temporary password to access the cluster for the first time and instructions on how to change you password to a permanent one.
 
 ```email

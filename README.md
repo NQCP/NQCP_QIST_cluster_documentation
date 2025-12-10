@@ -2,12 +2,12 @@
 This documentation is meant for QIST users on the HPC cluster. It explains how to get an account, log in, which partitions to use, and how to set up a working environment.
 
 ## General info on the QIST cluster
-The QIST cluster contains several compute nodes (see [description below](#partitions) that are hosted as part of the the SCIENCE HPC cluster.
+The QIST cluster contains several compute nodes (see [description below](#partitions)) that are hosted as part of the the SCIENCE HPC cluster.
 The HPC cluster uses SLURM as a workload manager and job scheduling system. For SLURM specifics see the [excellent documentation](https://slurm.schedmd.com/documentation.html) as well as plenty of guides. See for example the following:
 * https://psteinb.github.io/hpc-in-a-day/ (text)
 * https://www.youtube.com/watch?v=NH_Fb7X6Db0 (video)
 
-Both are comprehensive so feel free to only watch/read as much as you feel the need to have. SLURM is a powerful tool, but day-to-day usage involves only a few commands.
+Both are comprehensive so feel free to only watch/read as much as you feel the need to have. SLURM is a powerful tool, but day-to-day usage requires only a few simple commands.
 
 ## Creating an account
 If you do not yet have an UCPH HPC account, go to the following link and carefully follow the instructions: https://hpc.ku.dk/account.html
@@ -26,19 +26,38 @@ Once your request has been granted (usually within a day or two), you should get
 
 Happy calculating!
 
+## Setting up your workspace
+When you've managed to log in to your account, you need to set up your workspace.
+
+First, we need to set up some basic configurations in your `.bashrc` file. The file `~/.bashrc` lives in your home directory. You can edit it from the terminal (`nano ~/.bashrc`, `vim ~/.bashrc`) or via WinSCP.
+Open your `.bashrc`. This can be done either through WinSCP or through the terminal with vim/nano.
+Insert the following text below what is already present:
+
+```bash
+alias q='squeue -u $USER'
+alias wq="watch -n 3 'squeue -u $USER'"
+alias qgpu='squeue -p qist-gpu'
+alias q3='squeue -p kemi_gemma3'
+alias show='scontrol show node'
+alias job='scontrol show job'
+
+# show availability for nodes node[240,321-334] (QIST nodes)
+alias qav='sinfo -N -n node[240,321-334]'
+```
+
 ## Partitions
 The partitions that QIST people should have access to are: `kemi_gemma3`, `PLACEHOLDER FAST`, and `PLACEHOLDER FAT`, and `qist-gpu`.
 > [!CAUTION]
 > Do *not* run CPU-only jobs on `qist-gpu`. If all CPU cores are used, no one can run GPU jobs even if the GPUs are idle.
 
 As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them to let them know that they are blocking your calculations.
-
 The real-life name of someone can often be found running the following command:
 ```bash
 getent passwd <username>
 ```
 
-The following resources are available on those partitions. The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wiki/Hyper-threading):
+To specify the partition on which you want to execute a given job, use `-p partition-name` where `partition-name` refers to a suitable partition for the job as listed below.
+The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wiki/Hyper-threading):
 
 ### `kemi_gemma3` (CPU partition)
 
@@ -71,25 +90,6 @@ The following resources are available on those partitions. The 2 x X cores means
 - **CPUs / memory per node:** 2 x 24 cores, 1.5 TB RAM
 - **Use case:** GPU-accelerated workloads (neural network wavefunctions, ML potentials, and other CUDA/JAX/PyTorch jobs).
 
-## Setting up your workspace
-When you've managed to log in to your account, you need to set up your workspace.
-
-First, we need to set up some basic configurations in your `.bashrc` file. The file `~/.bashrc` lives in your home directory. You can edit it from the terminal (`nano ~/.bashrc`, `vim ~/.bashrc`) or via WinSCP.
-Open your `.bashrc`. This can be done either through WinSCP or through the terminal with vim/nano.
-Insert the following text below what is already present:
-
-```bash
-alias q='squeue -u $USER'
-alias wq="watch -n 3 'squeue -u $USER'"
-alias qgpu='squeue -p qist-gpu'
-alias q3='squeue -p kemi_gemma3'
-alias show='scontrol show node'
-alias job='scontrol show job'
-
-# show availability for nodes node[240,321-334] (QIST nodes)
-alias qav='sinfo -N -n node[240,321-334]'
-```
-
 ## Accessing the HPC cluster from outside UCPH
 The HPC cluster can, in general, not be accessed without being connected to the cabled internet of UCPH. However, there are ways to access the HPC cluster without being on UCPH premises:
 1. Whitelist an IP-address in the firewall
@@ -106,9 +106,9 @@ Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This 
 
 ## Software on the cluster
 > [!CAUTION]
-> The QIST cluster is *self-maintained*, meaning if programs are not already available on the cluster, users need to install them themselves as there is no software support.
+> The QIST cluster is **self-maintained**, meaning that if programs are not already available on the cluster, users need to install them themselves as there is no software support.
 
-Which programs you have to install depends on which types of calculations you need to run. In the following, we will walk you through each installation independently and it is up to you to tailor it to your specific needs.
+Which programs you have to install depends on which types of calculations you need to run.
 
 ### Installing Python
 The default version of Python the HPC cluster is 3.9.21. That may or may not be sufficient for your workload. Furthermore, `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
@@ -129,7 +129,7 @@ When something breaks, the best way to get it fixed (and documented) is to open 
 3. If you still don’t see it -> open a new issue.
 
 ## Cluster access issues
-If you suddenly can no longer log in to the cluster, or experience any other cluster maintenance-related issues, you can contact the cluster support at
+If you suddenly can no longer access a specific partition, or experience any other cluster maintenance-related issues, you can contact the cluster support at
 ```email
 support@hpc.ku.dk
 ```

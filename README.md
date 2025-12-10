@@ -30,8 +30,7 @@ Happy calculating!
 When you've managed to log in to your account, you need to set up your workspace.
 
 First, we need to set up some basic configurations in your `.bashrc` file. The file `~/.bashrc` lives in your home directory. You can edit it from the terminal (`nano ~/.bashrc`, `vim ~/.bashrc`) or via WinSCP.
-Open your `.bashrc`. This can be done either through WinSCP or through the terminal with vim/nano.
-Insert the following text below what is already present:
+Open your `.bashrc` and insert the following text below what is already present:
 
 ```bash
 alias q='squeue -u $USER'

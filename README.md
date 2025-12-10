@@ -1,31 +1,28 @@
 # NQCP_QIST_cluster_documentation
 This documentation is meant for QIST users on the HPC cluster. It explains how to get an account, log in, which partitions to use, and how to set up a working environment.
 
-For SLURM specifics see the [excellent documentation](https://slurm.schedmd.com/documentation.html) as well as plenty of guides. See for example the following:
+## General info on the QIST cluster
+The QIST cluster contains several compute nodes (see [description below](#partitions) that are hosted as part of the the SCIENCE HPC cluster.
+The HPC cluster uses SLURM as a workload manager and job scheduling system. For SLURM specifics see the [excellent documentation](https://slurm.schedmd.com/documentation.html) as well as plenty of guides. See for example the following:
 * https://psteinb.github.io/hpc-in-a-day/ (text)
 * https://www.youtube.com/watch?v=NH_Fb7X6Db0 (video)
 
 Both are comprehensive so feel free to only watch/read as much as you feel the need to have. SLURM is a powerful tool, but day-to-day usage involves only a few commands.
 
 ## Creating an account
-Go to the following link and follow the instructions: https://hpc.ku.dk/account.html
+If you do not yet have an UCPH HPC account, go to the following link and carefully follow the instructions: https://hpc.ku.dk/account.html
 
-Fill out the requested information. Barring the most obvious ones (like "First Name" etc), I'll list default information for some of the fields:
+Fill out the requested information. Barring the most obvious ones (like "First Name" etc), here is the default information for some of the fields:
 
 - Group: Select QIST
 - Preferred login name: Username for your account. Used for login and the username that everyone else sees so please choose a descriptive name.
 - Preferred shell: Bash is fine
-- Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing the HPC cluster from outside UCPH"). You can input a placeholder (e.g. "123.456.789.012") or check your current IP-address at <https://ifconfig.me>. 
-- Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor, choose "6 months".
+- Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing the HPC cluster from outside UCPH"). You can input a placeholder (e.g. "123.456.789.012") or check your current IP-address at <https://ifconfig.me>. Please note that using a VPN will change your IP address.
+- Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor student, choose "6 months".
 
-When the form has been filled out, press "Submit".
+When the form has been filled out, press "Submit". Do not forget to send in the rules-of-conduct form, as without this your account request will not be granted! 
 
-Once your request has been granted, you should get an email with a temporary password to access the cluster for the first time and instructions on how to change you password to a permanent one.
-
-```email
-support@hpc.ku.dk
-```
-Now you just need patience! You should get an email within a day or two where they confirm that your account has been created.
+Once your request has been granted (usually within a day or two), you should get an email with a temporary password to access the cluster for the first time and instructions on how to change you password to a permanent one.
 
 Happy calculating!
 
@@ -34,7 +31,7 @@ The partitions that QIST people should have access to are: `kemi_gemma3`, `PLACE
 > [!CAUTION]
 > Do *not* run CPU-only jobs on `qist-gpu`. If all CPU cores are used, no one can run GPU jobs even if the GPUs are idle.
 
-As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them (or Nina Glaser) to let them know.
+As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them to let them know that they are blocking your calculations.
 
 The real-life name of someone can often be found running the following command:
 ```bash
@@ -48,19 +45,19 @@ The following resources are available on those partitions. The 2 x X cores means
 - **Nodes:** 13
 - **CPUs per node:** 2 x 16 cores (32 cores total)
 - **Memory per node:** approx. 256 GB
-- **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
+- **Use case:** Small-medium CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
 ### `PLACEHOLDER FAST` (CPU partition)
 
 - **Nodes:** 4
 - **CPUs per node:** 2 x 48 cores, 3.65 GHz (96 cores total)
 - **Memory per node:** 1.5 TB
-- **Use case:** Small-medium CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
+- **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
 ### `PLACEHOLDER FAT` (CPU partition)
 
 - **Nodes:** 3
-- **CPUs per node:** 2 x 96 cores, 2.6 GHz (32 cores total)
+- **CPUs per node:** 2 x 96 cores, 2.6 GHz (192 cores total)
 - **Memory per node:** 3 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
@@ -71,18 +68,15 @@ The following resources are available on those partitions. The 2 x X cores means
 - **GPUs per node:** 4 x H200 NVL 141 GB per GPU
   - **Driver:** 580.95.05
   - **CUDA:** 13.0
-- **CPUs / memory per node:** 2 x 48 cores, 1.5 TB RAM
+- **CPUs / memory per node:** 2 x 24 cores, 1.5 TB RAM
 - **Use case:** GPU-accelerated workloads (neural network wavefunctions, ML potentials, and other CUDA/JAX/PyTorch jobs).
 
 ## Setting up your workspace
 When you've managed to log in to your account, you need to set up your workspace.
 
-Which programs you have to install depends on which types of calculations you need to run. In the following, I'll walk through each installation independently and it is up to you to tailor it to your specific needs.
-
-First, we need to set up some basic configurations in your `.bashrc` file. The file `~/.bashrc` lives in your home directory. You can edit it from the terminal (`nano ~/.bashrc`, `vim ~/.bashrc`) or via WinSCP
-1. Open your `.bashrc`. This can be done either through WinSCP or through the terminal with vim/nano.
-
-2. Insert the following text below what is already present:
+First, we need to set up some basic configurations in your `.bashrc` file. The file `~/.bashrc` lives in your home directory. You can edit it from the terminal (`nano ~/.bashrc`, `vim ~/.bashrc`) or via WinSCP.
+Open your `.bashrc`. This can be done either through WinSCP or through the terminal with vim/nano.
+Insert the following text below what is already present:
 
 ```bash
 alias q='squeue -u $USER'
@@ -110,9 +104,15 @@ Follow the instructions shown.
 
 Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely.
 
+## Software on the cluster
+> [!CAUTION]
+> The QIST cluster is *self-maintained*, meaning if programs are not already available on the cluster, users need to install them themselves as there is no software support.
+
+Which programs you have to install depends on which types of calculations you need to run. In the following, we will walk you through each installation independently and it is up to you to tailor it to your specific needs.
+
 ### Installing Python
-The default version of Python the HPC cluster is 3.9.21. That may or may not be sufficient for your workload. Furthermore, as `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
-Other package managers solve some of the issues with `pip`. There are many -- `uv`, `poetry`, `pixi`, etc. -- and each has their own (dis)advantages. I will explain the installation of `conda` as that can install non-Python libraries (such as C or Fortran compilers) which can be very useful.
+The default version of Python the HPC cluster is 3.9.21. That may or may not be sufficient for your workload. Furthermore, `pip` often has trouble handling libraries that has complex installation procedures (such as compiling C/C++/CUDA libraries).
+Other package managers solve some of the issues with `pip`. There are many -- `uv`, `poetry`, `pixi`, etc. -- and each has their own (dis)advantages. We will focus here on the installation of `conda` as it can install non-Python libraries (such as C or Fortran compilers) which can be very useful.
 
 Follow the installation instructions given here: <https://www.anaconda.com/docs/getting-started/miniconda/main>
 
@@ -128,3 +128,9 @@ When something breaks, the best way to get it fixed (and documented) is to open 
 2. Check existing Issues (both **Open** and **Closed**) for something similar.
 3. If you still don’t see it -> open a new issue.
 
+## Cluster access issues
+If you suddenly can no longer log in to the cluster, or experience any other cluster maintenance-related issues, you can contact the cluster support at
+```email
+support@hpc.ku.dk
+```
+Note that the cluster support will only help with general cluster issues, and not with specific software problems, etc.

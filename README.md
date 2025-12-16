@@ -30,7 +30,7 @@ Happy calculating!
 When you've managed to log in to your account, you need to set up your workspace.
 
 First, we need to set up some basic configurations in your `.bashrc` file. The file `~/.bashrc` lives in your home directory. You can edit it from the terminal (`nano ~/.bashrc`, `vim ~/.bashrc`) or via WinSCP.
-Open your `.bashrc` and insert the following text below what is already present:
+Open your `.bashrc` and insert the following text below what is already present.
 
 ```bash
 alias q='squeue -u $USER'
@@ -107,7 +107,7 @@ Follow the instructions shown.
 Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely.
 
 ## Software on the cluster
-> [!CAUTION]
+> [!NOTE]
 > The QIST cluster is **self-maintained**, meaning that if programs are not already available on the cluster, users need to install them themselves as there is no software support.
 
 Which programs you have to install depends on which types of calculations you need to run.

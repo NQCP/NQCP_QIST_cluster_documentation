@@ -45,15 +45,7 @@ alias qav='sinfo -N -n node[240,321-334]'
 ```
 
 ## Partitions
-The partitions that QIST people should have access to are: `kemi_gemma3`, `PLACEHOLDER FAST`, and `PLACEHOLDER FAT`, and `qist-gpu`.
-> [!CAUTION]
-> Do *not* run CPU-only jobs on `qist-gpu`. If all CPU cores are used, no one can run GPU jobs even if the GPUs are idle.
-
-As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them to let them know that they are blocking your calculations.
-The real-life name of someone can often be found running the following command:
-```bash
-getent passwd <username>
-```
+The partitions that QIST people can have access to are: `kemi_gemma3`, `qist-fast`, `qist-fat`, and `qist-gpu`.
 
 To specify the partition on which you want to execute a given job, use `-p partition-name` where `partition-name` refers to a suitable partition for the job as listed below.
 The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wiki/Hyper-threading):
@@ -65,20 +57,22 @@ The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wik
 - **Memory per node:** approx. 256 GB
 - **Use case:** Small-medium CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
-### `PLACEHOLDER FAST` (CPU partition)
+### `qist-fast` (CPU partition)
 
 - **Nodes:** 4
 - **CPUs per node:** 2 x 48 cores, 3.65 GHz (96 cores total)
 - **Memory per node:** 1.5 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
-### `PLACEHOLDER FAT` (CPU partition)
+> [!NOTE]
+> The default time limit for a given job on `qist-fast` and `qist-fat` is 1 hour. If your job requires more time than that to complete, indicate the required time in your job submission with `--time DD-HH:MM:SS`, for instance `--time 4:00:00` for a 4 hour limit. Note that no jobs can be ran for longer than a month and will thus be killed automatically once that limit is reached. If you have a job that you anticipate taking longer than a month, contact the cluster administrator Nina Glaser.
+
+### `qist-fat` (CPU partition)
 
 - **Nodes:** 3
 - **CPUs per node:** 2 x 96 cores, 2.6 GHz (192 cores total)
 - **Memory per node:** 3 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
-
 
 ### `qist-gpu` (GPU partition)
 
@@ -88,6 +82,15 @@ The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wik
   - **CUDA:** 13.0
 - **CPUs / memory per node:** 2 x 24 cores, 1.5 TB RAM
 - **Use case:** GPU-accelerated workloads (neural network wavefunctions, ML potentials, and other CUDA/JAX/PyTorch jobs).
+
+> [!CAUTION]
+> Do *not* run CPU-only jobs on `qist-gpu`. If all CPU cores are used, no one can run GPU jobs even if the GPUs are idle.
+
+As there is no central administrator or automated process to keep track of usage, please help each other to make the best of the available resources. And if you notice someone accidentally having only CPU jobs on the GPUs, please write them to let them know that they are blocking your calculations.
+The real-life name of someone can often be found running the following command:
+```bash
+getent passwd <username>
+```
 
 ## Accessing the HPC cluster from outside UCPH
 The HPC cluster can, in general, not be accessed without being connected to the cabled internet of UCPH. However, there are ways to access the HPC cluster without being on UCPH premises:

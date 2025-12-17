@@ -92,6 +92,12 @@ The real-life name of someone can often be found running the following command:
 getent passwd <username>
 ```
 
+### Info about partitions, nodes, and jobs.
+SLURM can be queried for different information about partitions, nodes, and jobs. Questions such as "what is the default time limit for a job?", "how many CPUs have been allocated on a given node?", "how much memory is this job taking?", or more. The following lists commands that you can use to get information about these different levels:
+* `scontrol show partition <partition_name>` will provide information about a **partition** such as `qist-gpu`.
+* `scontrol show node <node_id>` will provide information about a **node** such as `node240`.
+* `scontrol show job <job_id>` will provide information about a **job**
+
 ## Accessing the HPC cluster from outside UCPH
 The HPC cluster can, in general, not be accessed without being connected to the cabled internet of UCPH. However, there are ways to access the HPC cluster without being on UCPH premises:
 1. Whitelist an IP-address in the firewall

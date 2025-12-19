@@ -12,7 +12,7 @@ Both are comprehensive so feel free to only watch/read as much as you feel the n
 ## Creating an account
 If you do not yet have an UCPH HPC account, go to the following link and carefully follow the instructions: https://hpc.ku.dk/account.html
 
-Fill out the requested information. Barring the most obvious ones (like "First Name" etc), here is the default information for some of the fields:
+Fill out all fields with the requested information. Barring the most obvious ones (like "First Name" etc), here is the default information for some of the fields:
 
 - Group: Select QIST
 - Preferred login name: Username for your account. Used for login and the username that everyone else sees so please choose a descriptive name.

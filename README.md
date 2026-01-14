@@ -124,6 +124,17 @@ Other package managers solve some of the issues with `pip`. There are many -- `u
 
 Follow the installation instructions given here: <https://www.anaconda.com/docs/getting-started/miniconda/main>
 
+## Storage on the cluster
+There is both backed-up as well as non-backed-up storage available for the QIST users on the cluster.
+Às our overall storage space is limited, please clean up after your calculations to avoid unnecessary cluttering and remove files as soon as they are not needed anymore.
+
+### User home directory
+Every QIST user has an automatically created home directory which is backed up and private by default. The directory has a default storage size quota of 50GB. Once you reach this size, you will be warned that you have exceeded your quota. In order for you to finish your (potentially lenghty) calculations, it will still be possible to write to your home for a grace period of two weeks. After this period expires, you will no longer be able to write new files until you clean up your home so that it's size falls below the allocated quota again. Please note that there is a hard limit of 200GB, and once that is reached all writes stop immediately.
+
+### Shared QIST storage
+For collaborative projects, there is a dedicated shared QIST storage available at `/lustre/hpc/project/qist/`. This is shared among all users, with everyone having access to the data by default, and is not backed up.
+If you start a new collaborative project, please create a new directory in `/lustre/hpc/project/qist/` with the following name `<project-owner-username>_<descriptive-project-name>` so that it is visible who is responsible for that project and your collaborators can easily find it. The project owner is responsible for ensuring good data storage practices in that directory, and for freeing up the space again once the data is no longer needed.
+
 ## Cluster announcements
 Announcements from the HPC cluster administrators about maintenance windows, upgrades, and unplanned outages can be obtained by signing up to the following mailing list: <https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce>
 

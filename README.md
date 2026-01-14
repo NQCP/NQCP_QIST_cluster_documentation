@@ -126,10 +126,10 @@ Follow the installation instructions given here: <https://www.anaconda.com/docs/
 
 ## Storage on the cluster
 There is both backed-up as well as non-backed-up storage available for the QIST users on the cluster.
-Às our overall storage space is limited, please clean up after your calculations to avoid unnecessary cluttering and remove files as soon as they are not needed anymore.
+As our overall storage space is limited, please clean up after your calculations to avoid unnecessary cluttering and remove files as soon as they are no longer needed.
 
 ### User home directory
-Every QIST user has an automatically created home directory which is backed up and private by default. The directory has a default storage size quota of 50GB. Once you reach this size, you will be warned that you have exceeded your quota. In order for you to finish your (potentially lenghty) calculations, it will still be possible to write to your home for a grace period of two weeks. After this period expires, you will no longer be able to write new files until you clean up your home so that it's size falls below the allocated quota again. Please note that there is a hard limit of 200GB, and once that is reached all writes stop immediately.
+Every QIST user has an automatically created home directory loacted at `/groups/qist/<your-username>` which is backed up and private by default. The directory has a default storage size quota of 50GB. Once you reach this size, you will be warned that you have exceeded your quota. In order for you to finish your (potentially lenghty) calculations, it will still be possible to write to your home for a grace period of two weeks. After this period expires, you will no longer be able to write new files until you clean up your home so that it's size falls below the allocated quota again. Please note that there is a hard limit of 200GB, and once that is reached all writes stop immediately.
 
 ### Shared QIST storage
 For collaborative projects, there is a dedicated shared QIST storage available at `/lustre/hpc/project/qist/`. This is shared among all users, with everyone having access to the data by default, and is not backed up.

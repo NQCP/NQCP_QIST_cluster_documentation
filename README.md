@@ -35,13 +35,15 @@ Open your `.bashrc` and insert the following text below what is already present.
 ```bash
 alias q='squeue -u $USER'
 alias wq="watch -n 3 'squeue -u $USER'"
+alias kemi_gemma3='squeue -p kemi_gemma3'
 alias qgpu='squeue -p qist-gpu'
-alias q3='squeue -p kemi_gemma3'
+alias qfast='squeue -p qist-fast'
+alias qfat='squeue -p qist-fat'
 alias show='scontrol show node'
 alias job='scontrol show job'
 
-# show availability for nodes node[240,321-334] (QIST nodes)
-alias qav='sinfo -N -n node[240,321-334]'
+# show availability for nodes node[240-244,265-271,321-334] (QIST nodes)
+alias qav='sinfo -N -n node[240-244,265-271,321-334]'
 ```
 
 ## Partitions

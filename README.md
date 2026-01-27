@@ -12,7 +12,7 @@ Both are comprehensive so feel free to only watch/read as much as you feel the n
 ## Creating an account
 If you do not yet have an UCPH HPC account, go to the following link and carefully follow the instructions: https://hpc.ku.dk/account.html
 
-Fill out all fields with the requested information. Barring the most obvious ones (like "First Name" etc), here is the default information for some of the fields:
+Fill out all fields on that webpace with the requested information. **Also, do not forget to send in the rules-of-conduct form, as without this your account request will not be granted!** Barring the most obvious fields (like "First Name" etc), here is the default information for some of the fields:
 
 - Group: Select QIST
 - Preferred login name: Username for your account. Used for login and the username that everyone else sees so please choose a descriptive name.
@@ -20,7 +20,7 @@ Fill out all fields with the requested information. Barring the most obvious one
 - Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "Accessing the HPC cluster from outside UCPH"). You can input a placeholder (e.g. "123.456.789.012") or check your current IP-address at <https://ifconfig.me>. Please note that using a VPN will change your IP address.
 - Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor student, choose "6 months".
 
-When the form has been filled out, press "Submit". **Do not forget to send in the rules-of-conduct form, as without this your account request will not be granted!**
+When the form has been filled out, press "Submit".
 
 Once your request has been granted (usually within a day or two), you should get an email with a temporary password to access the cluster for the first time and instructions on how to change you password to a permanent one.
 

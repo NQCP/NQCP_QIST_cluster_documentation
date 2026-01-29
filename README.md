@@ -67,7 +67,7 @@ The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wik
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
 > [!NOTE]
-> The default time limit for a given job on `qist-fast` and `qist-fat` is 1 hour. If your job requires more time than that to complete, indicate the required time in your job submission with `--time DD-HH:MM:SS`, for instance `--time 4:00:00` for a 4 hour limit. Note that no jobs can be ran for longer than a month and will thus be killed automatically once that limit is reached. If you have a job that you anticipate taking longer than a month, contact the cluster administrator Nina Glaser.
+> The default time limit for a given job on `qist-fast` and `qist-fat` is 1 hour. If your job requires more time than that to complete, indicate the required time in your job submission with `--time DD-HH:MM:SS`, for instance `--time 4:00:00` for a 4 hour limit. Note that no jobs can be ran for longer than a month and will thus be killed automatically once that limit is reached. If you have a job that you anticipate taking longer than a month, contact the cluster administrator Marcel Fabian.
 
 ### `qist-fat` (CPU partition)
 

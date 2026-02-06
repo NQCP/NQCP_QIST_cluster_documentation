@@ -62,7 +62,7 @@ The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wik
 ### `qist-fast` (CPU partition)
 
 - **Nodes:** 4
-- **CPUs per node:** 2 x 48 cores, 3.65 GHz (96 cores total)
+- **CPUs per node:** 2 x 96 cores, 3.65 GHz (192 cores total)
 - **Memory per node:** 1.5 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
@@ -72,7 +72,7 @@ The 2 x X cores means that they are [hyperthreaded](https://en.wikipedia.org/wik
 ### `qist-fat` (CPU partition)
 
 - **Nodes:** 3
-- **CPUs per node:** 2 x 96 cores, 2.6 GHz (192 cores total)
+- **CPUs per node:** 2 x 256 cores, 2.6 GHz (512 cores total)
 - **Memory per node:** 3 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 

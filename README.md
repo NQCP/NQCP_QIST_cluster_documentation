@@ -42,7 +42,7 @@ Once you have an account, connect to the cluster via SSH:
 ssh <your-username>@fend01.hpc.ku.dk
 ```
 
-The frontend nodes `fend00` through `fend05` are all available — you can use any of them (e.g. `fend01`, `fend03`). Frontend nodes are shared, so use them only for editing files, submitting jobs, and light tasks — not for running computations.
+The frontend nodes `fend01` through `fend04` are all available — you can use any of them (e.g. `fend01`, `fend03`). Frontend nodes are shared, so use them only for editing files, submitting jobs, and light tasks — not for running computations.
 
 > [!TIP]
 > **Off campus?** See [Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph) for remote access options.

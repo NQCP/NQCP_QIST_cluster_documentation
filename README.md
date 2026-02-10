@@ -189,7 +189,7 @@ If you start a new collaborative project, please create a new directory in `/lus
 ## Accessing the HPC cluster from outside UCPH
 The HPC cluster can, in general, not be accessed without being connected to the cabled internet of UCPH. However, there are ways to access the HPC cluster without being on UCPH premises:
 
-1. Whitelist an IP-address in the firewall
+* Whitelist an IP-address in the firewall
 
    While already logged in, run the following command:
    ```bash
@@ -197,9 +197,9 @@ The HPC cluster can, in general, not be accessed without being connected to the 
    ```
    Follow the instructions shown.
 
-2. Setup the use of multi-factor authentication
+* Setup the use of multi-factor authentication
 
-   Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely.
+   Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely. For the initial setup, you have to be on UCPH premises.
 
 ## Software on the cluster
 > [!NOTE]

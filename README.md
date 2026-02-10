@@ -109,7 +109,7 @@ cat seq.<job-id>.out   # View the output once the job completes
 | `kemi_gemma3` | Small–medium CPU jobs, testing | 32 | ~256 GB |
 | `qist-fast` | Medium–large CPU jobs | 192 | 1.5 TB |
 | `qist-fat` | Memory-intensive CPU jobs | 512 | 3 TB |
-| `qist-gpu` | GPU-accelerated workloads | 48 + 4× H200 GPU | 1.5 TB |
+| `qist-gpu` | GPU-accelerated workloads | 48 + 4 x H200 GPU | 1.5 TB |
 
 > [!TIP]
 > Start with `kemi_gemma3` for testing and small jobs. Move to `qist-fast` or `qist-fat` when you need more cores or memory. Use `qist-gpu` only for GPU workloads.

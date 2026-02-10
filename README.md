@@ -112,7 +112,7 @@ cat seq.<job-id>.out   # View the output once the job completes
 | `qist-gpu` | GPU-accelerated workloads | 48 + 4 x H200 GPU | 1.5 TB |
 
 > [!TIP]
-> Start with `kemi_gemma3` for testing and small jobs. Move to `qist-fast` or `qist-fat` when you need more cores or memory. Use `qist-gpu` only for GPU workloads.
+> Start with `qist-fast` for testing and small jobs. Move to `qist-fat` when you need more cores or memory. `kemi_gemma3` is old and slow, thus should only be used if the other queues are already filled. Use `qist-gpu` only for GPU workloads.
 
 Happy calculating!
 

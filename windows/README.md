@@ -17,7 +17,7 @@ Windows 10 (version 1809+) and Windows 11 include a built-in OpenSSH client. No 
 4. Enter your password when prompted.
 
 > [!TIP]
-> You can use any frontend node from `fend00` to `fend05` (e.g. `fend01`, `fend03`).
+> You can use any frontend node. See the [main README](../README.md) for available frontends.
 
 ### SSH config (optional)
 

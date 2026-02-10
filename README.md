@@ -82,10 +82,14 @@ Jobs on the cluster are submitted through SLURM using `sbatch`. Here is a minima
 ```bash
 #!/bin/bash
 #SBATCH --job-name=hello
-#SBATCH --partition=kemi_gemma3
+#SBATCH --partition=qist-fast
+#SBATCH --account=qist
 #SBATCH --ntasks=1
+#SBATCH --cpus-per-task=2
+#SBATCH --output=seq.%j.out
+#SBATCH --error=seq.%j.err
 #SBATCH --time=00:05:00
-#SBATCH --output=hello_%j.out
+#SBATCH --mem=2G
 
 echo "Hello from $(hostname) at $(date)"
 ```
@@ -95,7 +99,7 @@ Submit, monitor, and check the output:
 ```bash
 sbatch hello.sh          # Submit the job
 squeue -u $USER          # Check job status (or use the alias: q)
-cat hello_<job-id>.out   # View the output once the job completes
+cat seq.<job-id>.out   # View the output once the job completes
 ```
 
 ### Choosing a partition

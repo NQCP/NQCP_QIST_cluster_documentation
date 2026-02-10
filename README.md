@@ -122,7 +122,7 @@ The partitions that QIST people can have access to are: `kemi_gemma3`, `qist-fas
 To specify the partition on which you want to execute a given job, use `-p partition-name` where `partition-name` refers to a suitable partition for the job as listed below.
 
 > [!NOTE]
-> The "2 × N cores" listed below means each node uses [hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading): each physical core exposes two logical cores. For most scientific workloads, you should request only the number of **physical** cores (the N value) to avoid contention between threads sharing the same physical core. For example, on `kemi_gemma3` (2 × 16 cores), request at most 16 cores per node unless you have confirmed that your code benefits from hyperthreading.
+> The "2 x N cores" listed below means each node uses [hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading): each physical core exposes two logical cores.
 
 ### `kemi_gemma3` (CPU partition)
 

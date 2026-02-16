@@ -4,17 +4,15 @@ This guide covers how to SSH into the QIST HPC cluster and transfer files from a
 
 For general cluster documentation (account creation, partitions, job submission, etc.), see the [main README](../README.md).
 
-## SSH via Windows Terminal / PowerShell
+## SSH via WSL
 
-Windows 10 (version 1809+) and Windows 11 include a built-in OpenSSH client. No extra software is needed.
+If you have Windows Subsystem for Linux installed, you can use SSH exactly as on Linux:
 
-1. Open **Windows Terminal** or **PowerShell**.
-2. Connect to the cluster:
-   ```
+1. Open your WSL terminal (e.g. Ubuntu).
+2. Connect:
+   ```bash
    ssh <your-username>@fend01.hpc.ku.dk
    ```
-3. On first connection, you will be asked to confirm the host fingerprint — type `yes`.
-4. Enter your password when prompted.
 
 > [!TIP]
 > You can use any frontend node. See the [main README](../README.md) for available frontends.
@@ -50,15 +48,18 @@ If you prefer a graphical SSH client or are on an older version of Windows:
 > [!TIP]
 > Save the session in PuTTY (enter a name under "Saved Sessions" and click "Save") so you don't have to re-enter the details each time.
 
-## SSH via WSL
+## SSH via Windows Terminal / PowerShell
 
-If you have Windows Subsystem for Linux installed, you can use SSH exactly as on Linux:
+Windows 10 (version 1809+) and Windows 11 include a built-in OpenSSH client. No extra software is needed. Note that there are some issues with the Windows Terminal/Powershell approach (see [#10](/../../issues/10))
 
-1. Open your WSL terminal (e.g. Ubuntu).
-2. Connect:
-   ```bash
+1. Open **Windows Terminal** or **PowerShell**.
+2. Connect to the cluster:
+   ```
    ssh <your-username>@fend01.hpc.ku.dk
    ```
+3. On first connection, you will be asked to confirm the host fingerprint — type `yes`.
+4. Enter your password when prompted.
+
 
 ## Transferring files
 

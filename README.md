@@ -104,12 +104,12 @@ cat seq.<job-id>.out   # View the output once the job completes
 
 ### Choosing a partition
 
-| Partition | Best for | S:C:T | Physical cores | Memory per node |
-|---|---|---|---|---|
-| `kemi_gemma3` | Small–medium CPU jobs, testing | 2:8:2 | 16 | ~256 GB |
-| `qist-fast` | Medium–large CPU jobs | 2:48:2 | 96 | 1.5 TB |
-| `qist-fat` | Memory-intensive CPU jobs | 2:128:2 | 256 | 3 TB |
-| `qist-gpu` | GPU-accelerated workloads | 2:24:2 | 48 + 4 x H200 GPU | 1.5 TB |
+| Partition | Best for | S:C:T | Physical cores | GPUs per node | Memory per node |
+|---|---|---|---|---|---|
+| `kemi_gemma3` | Small–medium CPU jobs, testing | 2:8:2 | 16 | - | ~256 GB |
+| `qist-fast` | Medium–large CPU jobs | 2:48:2 | 96 | - | 1.5 TB |
+| `qist-fat` | Memory-intensive CPU jobs | 2:128:2 | 256 | - | 3 TB |
+| `qist-gpu` | GPU-accelerated workloads | 2:24:2 | 48 | 4 x H200 | 1.5 TB |
 
 > **S:C:T** = Sockets : Cores per socket : Threads per core. See [Partitions](#partitions) for full hardware details including logical CPU counts.
 
@@ -127,7 +127,7 @@ To specify the partition on which you want to execute a given job, use `-p parti
 > All partitions use [hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading): each physical core exposes two logical CPUs. The **S:C:T** notation shows Sockets : Cores per socket : Threads per core (as reported by `sinfo -N -l`).
 
 > [!TIP]
-> **Just getting started?** If you are running a single program (e.g. a Python script), the default SLURM settings (1 CPU) are fine — just submit your job without worrying about core counts. The physical core count matters when running multiple jobs simultaneously on a node.
+> **Just getting started?** If you are running a single program (e.g. a Python script), the default SLURM settings (1 physical core) are fine — just submit your job without worrying about core counts. The physical core count matters when running multiple jobs simultaneously on a node.
 
 ### `kemi_gemma3` (CPU partition)
 

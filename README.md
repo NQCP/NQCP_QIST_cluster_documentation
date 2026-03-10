@@ -243,7 +243,6 @@ If you suddenly can no longer access a specific partition, or experience any oth
 | Who | Role | Contact |
 |---|---|---|
 | Marcel Fabian | Cluster administrator | via GitHub issue or email |
-| Nina Glaser | Cluster administrator | via GitHub issue or email |
 | HPC support | General cluster issues (access, maintenance) | support@hpc.ku.dk |
 | GitHub Issues | Bug reports, documentation requests | [Open an issue](../../issues) |
 | Mailing list | Cluster announcements (maintenance, outages) | [dcsc-ku-announce](https://mailman.nbi.ku.dk/mailman/listinfo/dcsc-ku-announce) |

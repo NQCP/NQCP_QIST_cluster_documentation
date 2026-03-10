@@ -104,12 +104,14 @@ cat seq.<job-id>.out   # View the output once the job completes
 
 ### Choosing a partition
 
-| Partition | Best for | Cores per node | Memory per node |
-|---|---|---|---|
-| `kemi_gemma3` | Small–medium CPU jobs, testing | 32 | ~256 GB |
-| `qist-fast` | Medium–large CPU jobs | 192 | 1.5 TB |
-| `qist-fat` | Memory-intensive CPU jobs | 512 | 3 TB |
-| `qist-gpu` | GPU-accelerated workloads | 48 + 4 x H200 GPU | 1.5 TB |
+| Partition | Best for | S:C:T | Physical cores | Memory per node |
+|---|---|---|---|---|
+| `kemi_gemma3` | Small–medium CPU jobs, testing | 2:8:2 | 16 | ~256 GB |
+| `qist-fast` | Medium–large CPU jobs | 2:48:2 | 96 | 1.5 TB |
+| `qist-fat` | Memory-intensive CPU jobs | 2:128:2 | 256 | 3 TB |
+| `qist-gpu` | GPU-accelerated workloads | 2:24:2 | 48 + 4 x H200 GPU | 1.5 TB |
+
+> **S:C:T** = Sockets : Cores per socket : Threads per core. See [Partitions](#partitions) for full hardware details including logical CPU counts.
 
 > [!TIP]
 > Start with `qist-fast` for testing and small jobs. Move to `qist-fat` when you need more cores or memory. `kemi_gemma3` is old and slow, thus should only be used if the other queues are already filled. Use `qist-gpu` only for GPU workloads.
@@ -122,19 +124,24 @@ The partitions that QIST people can have access to are: `kemi_gemma3`, `qist-fas
 To specify the partition on which you want to execute a given job, use `-p partition-name` where `partition-name` refers to a suitable partition for the job as listed below.
 
 > [!NOTE]
-> The "2 x N cores" listed below means each node uses [hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading): each physical core exposes two logical cores.
+> All partitions use [hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading): each physical core exposes two logical CPUs. The **S:C:T** notation shows Sockets : Cores per socket : Threads per core (as reported by `sinfo -N -l`).
+
+> [!TIP]
+> **Just getting started?** If you are running simple programs (e.g. a single Python script) you don't need to worry about parallelization or hyperthreading. If you are running multiple jobs, focus on the **physical core** count to avoid oversubscribing the node.
 
 ### `kemi_gemma3` (CPU partition)
 
 - **Nodes:** 13
-- **CPUs per node:** 2 x 16 cores (32 cores total)
+- **Physical cores:** 16 (2 sockets × 8 cores)
+- **Logical CPUs:** 32
 - **Memory per node:** approx. 256 GB
 - **Use case:** Small-medium CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
 ### `qist-fast` (CPU partition)
 
 - **Nodes:** 4
-- **CPUs per node:** 2 x 96 cores, 3.65 GHz (192 cores total)
+- **Physical cores:** 96 (2 sockets × 48 cores), 3.65 GHz
+- **Logical CPUs:** 192
 - **Memory per node:** 1.5 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
@@ -144,7 +151,8 @@ To specify the partition on which you want to execute a given job, use `-p parti
 ### `qist-fat` (CPU partition)
 
 - **Nodes:** 3
-- **CPUs per node:** 2 x 256 cores, 2.6 GHz (512 cores total)
+- **Physical cores:** 256 (2 sockets × 128 cores), 2.6 GHz
+- **Logical CPUs:** 512
 - **Memory per node:** 3 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
@@ -154,7 +162,9 @@ To specify the partition on which you want to execute a given job, use `-p parti
 - **GPUs per node:** 4 x H200 NVL 141 GB per GPU
   - **Driver:** 580.95.05
   - **CUDA:** 13.0
-- **CPUs / memory per node:** 2 x 24 cores, 1.5 TB RAM
+- **Physical cores:** 48 (2 sockets × 24 cores)
+- **Logical CPUs:** 96
+- **Memory per node:** 1.5 TB
 - **Use case:** GPU-accelerated workloads (neural network wavefunctions, ML potentials, and other CUDA/JAX/PyTorch jobs).
 
 > [!CAUTION]

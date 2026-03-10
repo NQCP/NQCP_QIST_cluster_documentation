@@ -127,7 +127,7 @@ To specify the partition on which you want to execute a given job, use `-p parti
 > All partitions use [hyperthreading](https://en.wikipedia.org/wiki/Hyper-threading): each physical core exposes two logical CPUs. The **S:C:T** notation shows Sockets : Cores per socket : Threads per core (as reported by `sinfo -N -l`).
 
 > [!TIP]
-> **Just getting started?** If you are running simple programs (e.g. a single Python script) you don't need to worry about parallelization or hyperthreading. If you are running multiple jobs, focus on the **physical core** count to avoid oversubscribing the node.
+> **Just getting started?** If you are running a single program (e.g. a Python script), the default SLURM settings (1 CPU) are fine — just submit your job without worrying about core counts. The physical core count matters when running multiple jobs simultaneously on a node.
 
 ### `kemi_gemma3` (CPU partition)
 

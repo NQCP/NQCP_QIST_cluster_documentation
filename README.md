@@ -58,7 +58,6 @@ Open your `.bashrc` and insert the following text below what is already present.
 ```bash
 alias q='squeue -u $USER'               # Show your queued/running jobs
 alias wq="watch -n 3 'squeue -u $USER'" # Live-refresh your job queue every 3 seconds
-alias kemi_gemma3='squeue -p kemi_gemma3' # Show jobs on the kemi_gemma3 partition
 alias qgpu='squeue -p qist-gpu'          # Show jobs on the qist-gpu partition
 alias qfast='squeue -p qist-fast'        # Show jobs on the qist-fast partition
 alias qfat='squeue -p qist-fat'          # Show jobs on the qist-fat partition
@@ -66,7 +65,7 @@ alias show='scontrol show node'           # Show details for a specific node
 alias job='scontrol show job'             # Show details for a specific job
 
 # Show availability for QIST nodes
-alias qav='sinfo -N -n node[240-244,265-271,321-334]'
+alias qav='sinfo -N -n node[240,265-271]'
 ```
 
 After saving the file, activate the changes in your current session:
@@ -106,7 +105,6 @@ cat seq.<job-id>.out   # View the output once the job completes
 
 | Partition | Best for | S:C:T | Physical cores | GPUs per node | Memory per node |
 |---|---|---|---|---|---|
-| `kemi_gemma3` | Small–medium CPU jobs, testing | 2:8:2 | 16 | - | ~256 GB |
 | `qist-fast` | Medium–large CPU jobs | 2:48:2 | 96 | - | 1.5 TB |
 | `qist-fat` | Memory-intensive CPU jobs | 2:128:2 | 256 | - | 3 TB |
 | `qist-gpu` | GPU-accelerated workloads | 2:24:2 | 48 | 4 x H200 | 1.5 TB |
@@ -114,12 +112,12 @@ cat seq.<job-id>.out   # View the output once the job completes
 > **S:C:T** = Sockets : Cores per socket : Threads per core. See [Partitions](#partitions) for full hardware details including logical CPU counts.
 
 > [!TIP]
-> Start with `qist-fast` for testing and small jobs. Move to `qist-fat` when you need more cores or memory. `kemi_gemma3` is old and slow, thus should only be used if the other queues are already filled. Use `qist-gpu` only for GPU workloads.
+> Start with `qist-fast` for testing and small jobs. Move to `qist-fat` when you need more cores or memory. Use `qist-gpu` only for GPU workloads.
 
 Happy calculating!
 
 ## Partitions
-The partitions that QIST people can have access to are: `kemi_gemma3`, `qist-fast`, `qist-fat`, and `qist-gpu`.
+The partitions that QIST people can have access to are: `qist-fast`, `qist-fat`, and `qist-gpu`.
 
 To specify the partition on which you want to execute a given job, use `-p partition-name` where `partition-name` refers to a suitable partition for the job as listed below.
 
@@ -128,14 +126,6 @@ To specify the partition on which you want to execute a given job, use `-p parti
 
 > [!TIP]
 > **Just getting started?** If you are running a single program (e.g. a Python script), the default SLURM settings (1 physical core) are fine — just submit your job without worrying about core counts. The physical core count matters when running multiple jobs simultaneously on a node.
-
-### `kemi_gemma3` (CPU partition)
-
-- **Nodes:** 13
-- **Physical cores:** 16 (2 sockets × 8 cores)
-- **Logical CPUs:** 32
-- **Memory per node:** approx. 256 GB
-- **Use case:** Small-medium CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)
 
 ### `qist-fast` (CPU partition)
 

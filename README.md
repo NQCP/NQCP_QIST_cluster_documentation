@@ -141,7 +141,7 @@ To specify the partition on which you want to execute a given job, use `-p parti
 ### `qist-fat` (CPU partition)
 
 - **Nodes:** 3
-- **Physical cores:** 256 (2 sockets × 128 cores), 2.6 GHz
+- **Physical cores:** 256 (2 sockets × 128 cores), 2.7 GHz
 - **Logical CPUs:** 512
 - **Memory per node:** 3 TB
 - **Use case:** Medium–large CPU-only jobs (DFT, post-HF, classical MD, preprocessing, etc.)

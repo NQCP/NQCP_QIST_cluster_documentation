@@ -210,7 +210,7 @@ Install and connect by following the official UCPH guide for your operating syst
 * [Linux](https://kunet.ku.dk/employee-guide/ITvejl/VPN%20installation%20on%20Linux%20-%20for%20students.pdf)
 
 > [!NOTE]
-> * The VPN requires the NetIQ multi-factor-authentication app; the guides above cover installing it first.
+> * The VPN requires the NetIQ multi-factor authentication app; the guides above cover installing it first.
 > * Log in to the VPN with your **UCPH username and password** — not your HPC cluster credentials.
 > * The Linux guide assumes KDE with NetworkManager (`openconnect` + `networkmanager-openconnect`); other desktops differ in UI but use the same gateway, `vpn.ku.dk`.
 > * If the links are dead, search KUnet for "VPN installation".

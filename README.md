@@ -24,7 +24,7 @@ Fill out all fields on that webpage with the requested information. Barring the 
 - Group: Select QIST
 - Preferred login name: Username for your account. Used for login and the username that everyone else sees so please choose a descriptive name.
 - Preferred shell: Bash is fine
-- Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "[Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph)"). You can input a placeholder (e.g. "123.456.789.012") or check your current IP-address at <https://ifconfig.me>. Please note that using a VPN will change your IP address.
+- Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "[Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph)"). You can input a placeholder (e.g. "123.456.789.012") or check your current IP-address at <https://ifconfig.me>. Please note that using a VPN (see [Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph)) will change your IP address.
 - Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor student, choose "6 months".
 
 When the form has been filled out, press "Submit".
@@ -187,19 +187,41 @@ For collaborative projects, there is a dedicated shared QIST storage available a
 If you start a new collaborative project, please create a new directory in `/lustre/hpc/project/qist/` with the following name `<project-owner-username>_<descriptive-project-name>` so that it is visible who is responsible for that project and your collaborators can easily find it. The project owner is responsible for ensuring good data storage practices in that directory, and for freeing up the space again once the data is no longer needed.
 
 ## Accessing the HPC cluster from outside UCPH
-The HPC cluster can, in general, not be accessed without being connected to the cabled internet of UCPH. However, there are ways to access the HPC cluster without being on UCPH premises:
+The HPC cluster can, in general, only be accessed from within the UCPH network (cabled campus internet or eduroam). However, there are three ways to access the HPC cluster without being on UCPH premises; the VPN is the recommended option.
 
-* Whitelist an IP-address in the firewall
+### Option 1: UCPH VPN (recommended)
 
-   While already logged in, run the following command:
-   ```bash
-   hpc-setup-firewall.sh
-   ```
-   Follow the instructions shown.
+Connecting through the UCPH VPN (Cisco AnyConnect, now called Cisco Secure Client) puts your machine on the university network, and SSH and file transfer then work exactly as on campus. This is the only remote-access option you can set up entirely from home.
 
-* Setup the use of multi-factor authentication
+Install and connect by following the official UCPH guide for your operating system (KUnet login required):
 
-   Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely. For the initial setup, you have to be on UCPH premises.
+* [Windows](https://kunet.ku.dk/employee-guide/ITvejl/VPN%20installation%20on%20Windows%20-%20for%20students.pdf)
+* [Mac](https://kunet.ku.dk/employee-guide/ITvejl/VPN%20installation%20on%20Mac%20-%20for%20students.pdf)
+* [Linux](https://kunet.ku.dk/employee-guide/ITvejl/VPN%20installation%20on%20Linux%20-%20for%20students.pdf)
+
+> [!NOTE]
+> * The VPN requires the NetIQ multi-factor authentication app; the guides above cover installing it first.
+> * Log in to the VPN with your **UCPH username and password** — not your HPC cluster credentials.
+> * The Linux guide assumes KDE with NetworkManager (`openconnect` + `networkmanager-openconnect`); other desktops differ in UI but use the same gateway, `vpn.ku.dk`.
+> * If the links are dead, search KUnet for "VPN installation".
+
+Once the VPN is connected, log in as usual:
+
+```bash
+ssh <your-username>@fend01.hpc.ku.dk
+```
+
+### Option 2: Whitelist an IP-address in the firewall
+
+While already logged in, run the following command:
+```bash
+hpc-setup-firewall.sh
+```
+Follow the instructions shown.
+
+### Option 3: Multi-factor authentication (OTP)
+
+Follow the setup in this link: https://hpc.ku.dk/documentation/otp.html. This will automatically whitelist your current IP-address remotely. For the initial setup, you have to be on UCPH premises.
 
 ## Software on the cluster
 > [!NOTE]

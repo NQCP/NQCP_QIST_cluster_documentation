@@ -24,7 +24,7 @@ Fill out all fields on that webpage with the requested information. Barring the 
 - Group: Select QIST
 - Preferred login name: Username for your account. Used for login and the username that everyone else sees so please choose a descriptive name.
 - Preferred shell: Bash is fine
-- Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "[Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph)"). You can input a placeholder (e.g. "123.456.789.012") or check your current IP-address at <https://ifconfig.me>. Please note that using a VPN (see [Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph)) will change your IP address.
+- Firewall ip [1-3]: These three fields whitelist IP-addresses for remote access. It's possible to change these afterwards (see section "[Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph)"). You can input a placeholder (e.g. "192.0.2.1") or check your current IP-address at <https://ifconfig.me>. Please note that using a VPN (see [Accessing the HPC cluster from outside UCPH](#accessing-the-hpc-cluster-from-outside-ucph)) will change your IP address.
 - Next entitlement check: When they're supposed to check if you should still have access. Choose whichever option best matches your project length. For example, if you're bachelor student, choose "6 months".
 
 When the form has been filled out, press "Submit".
